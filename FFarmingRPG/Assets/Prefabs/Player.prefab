@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7158353204377164590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5459379713213057305}
+  - component: {fileID: 4476857652021951696}
+  m_Layer: 0
+  m_Name: Interactor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5459379713213057305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7158353204377164590}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 498698211658676718}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4476857652021951696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7158353204377164590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d85f481197b839488b8fa8b0a63d7a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &99362989864705541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68,7 +112,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 71ab0a0710ee9db4c8c1d2bb0d44ce78, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5459379713213057305}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 71ab0a0710ee9db4c8c1d2bb0d44ce78, type: 3}
       insertIndex: -1
@@ -77,6 +124,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2850964019442053674}
   m_SourcePrefab: {fileID: 100100000, guid: 71ab0a0710ee9db4c8c1d2bb0d44ce78, type: 3}
+--- !u!4 &498698211658676718 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 71ab0a0710ee9db4c8c1d2bb0d44ce78, type: 3}
+  m_PrefabInstance: {fileID: 99362989864705541}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &981903247092081492 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 71ab0a0710ee9db4c8c1d2bb0d44ce78, type: 3}
@@ -119,3 +171,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dda7c5758a3fde448c2dd680f6c3cee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkSpeed: 4
+  runSpeed: 8
