@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-
+    // Movement Components
     private CharacterController controller;
     private Animator animator;
 
@@ -13,15 +13,34 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed = 4f;
     public float runSpeed = 8f;
 
+    //Interaction Components
+    PlayerInteraction playerInteraction;
+
     void Awake()
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+
+        playerInteraction = GetComponentInChildren<PlayerInteraction>();
     }
 
     void Update()
     {
         Move();
+    
+        Interact();
+    }
+
+    public void Interact()
+    {
+
+        if(Input.GetButtonDown("Fire1"))
+        {
+            playerInteraction.Interact();
+        }
+
+
+
     }
 
     public void Move()

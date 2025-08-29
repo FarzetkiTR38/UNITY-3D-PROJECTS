@@ -123,6 +123,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 71ab0a0710ee9db4c8c1d2bb0d44ce78, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2850964019442053674}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 71ab0a0710ee9db4c8c1d2bb0d44ce78, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7397025603767786463}
   m_SourcePrefab: {fileID: 100100000, guid: 71ab0a0710ee9db4c8c1d2bb0d44ce78, type: 3}
 --- !u!4 &498698211658676718 stripped
 Transform:
@@ -158,7 +161,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.75, z: 0}
+  m_Center: {x: 0, y: 0.78, z: 0}
 --- !u!114 &2850964019442053674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,3 +176,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 4
   runSpeed: 8
+--- !u!54 &7397025603767786463
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981903247092081492}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 4
+  m_CollisionDetection: 0
