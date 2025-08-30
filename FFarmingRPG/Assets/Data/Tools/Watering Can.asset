@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff243bccd1c00904d89163d36897d107, type: 3}
   m_Name: Watering Can
   m_EditorClassIdentifier: 
-  description: 
+  description: "\U0001F4A7  Ekinleri sulamak ve b\xFCy\xFCmelerini sa\u011Flamak
+    i\xE7in kullan\u0131l\u0131r."
   thumbnail: {fileID: 0}
   gameModel: {fileID: 0}
-  toolType: 0
+  toolType: 1

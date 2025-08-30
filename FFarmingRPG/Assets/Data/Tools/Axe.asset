@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff243bccd1c00904d89163d36897d107, type: 3}
   m_Name: Axe
   m_EditorClassIdentifier: 
-  description: 
-  thumbnail: {fileID: 0}
+  description: "\U0001FA93 A\u011Fa\xE7lar\u0131 kesmek, odun toplamak ve k\xFCt\xFCkleri
+    par\xE7alamak i\xE7in kullan\u0131l\u0131r."
+  thumbnail: {fileID: 890466803, guid: e2c803dc379a72543868fc598ed5cd62, type: 3}
   gameModel: {fileID: 0}
-  toolType: 0
+  toolType: 2
