@@ -5,6 +5,14 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
 
+
+    [Header("Status Bar")]
+    public Image toolEquipedSlot;
+
+    public HandInventorySlot toolHandSlot;
+    public HandInventorySlot itemHandSlot;
+
+
     [Header("Inventory System")]
     public GameObject inventoryPanel;
     public InventorySlot[] toolSlots;
@@ -30,6 +38,16 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         RenderInventory();    
+        AssignSlotIndexes();
+    }
+
+    public void AssignSlotIndexes()
+    {
+        for(int i = 0; i < toolSlots.Length; i++)
+        {
+            toolSlots[i].AssignIndex(i);
+            itemSlots[i].AssignIndex(i);
+        }
     }
 
     public void RenderInventory()
@@ -38,6 +56,23 @@ public class UIManager : MonoBehaviour
         ItemData[] inventoryItemSlots = InventoryManager.instance.items;
         RenderInventoryPanel(inventoryToolSlots, toolSlots);
         RenderInventoryPanel(inventoryItemSlots, itemSlots);
+
+
+        toolHandSlot.Display(InventoryManager.instance.equippedTool);
+        itemHandSlot.Display(InventoryManager.instance.equippedItem);
+
+
+        ItemData equippedTool = InventoryManager.instance.equippedTool;
+
+        if(equippedTool != null)
+        {
+            toolEquipedSlot.sprite = equippedTool.thumbnail;
+            toolEquipedSlot.gameObject.SetActive(true);
+
+            return;
+        }
+
+        toolEquipedSlot.gameObject.SetActive(false);
     }
 
     void RenderInventoryPanel(ItemData[] slots, InventorySlot[] uiSlots)

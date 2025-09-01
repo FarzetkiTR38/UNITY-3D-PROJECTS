@@ -3,12 +3,21 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 
-public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     
     ItemData itemToDisplay;
 
     public Image itemDisplayImage;
+
+    public enum InventoryType
+    {
+        Item, tool
+    }
+
+    public InventoryType inventoryType;
+
+    int slotIndex;
 
     public void Display(ItemData itemToDisplay)
     {
@@ -26,6 +35,20 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         itemDisplayImage.gameObject.SetActive(false);
 
 
+    }
+
+    // virtual yapıyoruz ki override edebilelim
+    // pointer click eventini override edip farklı bir şey yapmasını sağlayacağız
+    // virtual yapınca fonksiyon sanal olarak orada duruyor
+    // override edince de o fonksiyonun içeriğini değiştiriyoruz
+    public virtual void OnPointerClick(PointerEventData eventData)
+    {
+        InventoryManager.instance.InventoryToHand(slotIndex, inventoryType); 
+    }
+
+    public void AssignIndex(int slotIndex)
+    {
+        this.slotIndex = slotIndex;
     }
 
 
