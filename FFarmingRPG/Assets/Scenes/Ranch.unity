@@ -2792,6 +2792,7 @@ GameObject:
   - component: {fileID: 1008697716}
   - component: {fileID: 1008697715}
   - component: {fileID: 1008697717}
+  - component: {fileID: 1008697718}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -2883,6 +2884,26 @@ MonoBehaviour:
   - {fileID: 1193403815}
   itemNameText: {fileID: 1377412661}
   itemDescriptionText: {fileID: 2049550213}
+--- !u!114 &1008697718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008697714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de93fd63ea700aa488e318f58c0092af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timestamp:
+    year: 0
+    season: 0
+    day: 0
+    hour: 0
+    minute: 0
+  timeScale: 1
+  sunTransform: {fileID: 1408895287}
 --- !u!1 &1060209060
 GameObject:
   m_ObjectHideFlags: 0
@@ -4055,13 +4076,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408895285}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1408895288
 MonoBehaviour:
   m_ObjectHideFlags: 0

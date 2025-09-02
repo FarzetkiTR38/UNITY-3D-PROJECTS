@@ -27,8 +27,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Move();
-    
+
         Interact();
+
+        //testler için:
+        if(Input.GetKey(KeyCode.CapsLock))
+        {
+            TimeManager.instance.Tick();
+        }
     }
 
     public void Interact()
