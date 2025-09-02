@@ -1645,7 +1645,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 96.000015, y: -15.752701}
+  m_AnchoredPosition: {x: 81, y: -15.752701}
   m_SizeDelta: {x: 296.7172, y: 49.0405}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &597629933
@@ -1695,15 +1695,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 55
+  m_fontSizeBase: 55
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2861,6 +2861,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toolEquipedSlot: {fileID: 902286500}
+  timeText: {fileID: 597629933}
+  dateText: {fileID: 2116828619}
   toolHandSlot: {fileID: 1468095367}
   itemHandSlot: {fileID: 746087617}
   inventoryPanel: {fileID: 1498202043}
@@ -6002,8 +6004,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 96, y: -17}
-  m_SizeDelta: {x: 296.7172, y: 49.0405}
+  m_AnchoredPosition: {x: 58, y: -7.3964996}
+  m_SizeDelta: {x: 309.2436, y: 48.836}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2116828619
 MonoBehaviour:
@@ -6052,15 +6054,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

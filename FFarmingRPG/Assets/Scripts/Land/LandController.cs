@@ -1,6 +1,7 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
-public class LandController : MonoBehaviour
+public class LandController : MonoBehaviour, ITimeTracker
 {
 
 
@@ -9,14 +10,16 @@ public class LandController : MonoBehaviour
         Soil, Farmland, Watered
     }
 
-    
+
     public Material soilMat, farmlandMat, wateredMat;
 
     public LandStatus landStatus;
-    
+
     new Renderer renderer;
-    
+
     public GameObject select;
+
+    GameTimestamp timeWatered;
 
     void Start()
     {
@@ -24,6 +27,8 @@ public class LandController : MonoBehaviour
         SwitchLandStatus(LandStatus.Soil);
 
         Select(false);
+
+        TimeManager.instance.RegisterTracker(this);
     }
 
     public void SwitchLandStatus(LandStatus statusToSwitch)
@@ -31,8 +36,8 @@ public class LandController : MonoBehaviour
         landStatus = statusToSwitch;
 
         Material materialToSwitch = soilMat;
-        
-        switch(statusToSwitch)
+
+        switch (statusToSwitch)
         {
             case LandStatus.Soil:
                 materialToSwitch = soilMat;
@@ -42,13 +47,14 @@ public class LandController : MonoBehaviour
                 break;
             case LandStatus.Watered:
                 materialToSwitch = wateredMat;
+                timeWatered = TimeManager.instance.GetGameTimestamp();
                 break;
         }
 
 
 
         renderer.material = materialToSwitch;
-    }    
+    }
 
     public void Select(bool toggle)
     {
@@ -62,20 +68,20 @@ public class LandController : MonoBehaviour
         EquipmentData equipmentData = toolSlot as EquipmentData;
         // as operatörü, güvenli tip dönüştürme (safe cast) yapar.
 
-        if(equipmentData != null)
+        if (equipmentData != null)
         {
             EquipmentData.ToolType toolType = equipmentData.toolType;
 
-            switch(toolType)
+            switch (toolType)
             {
                 case EquipmentData.ToolType.Hoe:
-                    if(landStatus == LandStatus.Soil)
+                    if (landStatus == LandStatus.Soil)
                     {
                         SwitchLandStatus(LandStatus.Farmland);
                     }
                     break;
                 case EquipmentData.ToolType.WateringCan:
-                    if(landStatus == LandStatus.Farmland)
+                    if (landStatus == LandStatus.Farmland)
                     {
                         SwitchLandStatus(LandStatus.Watered);
                     }
@@ -83,6 +89,21 @@ public class LandController : MonoBehaviour
             }
         }
     }
+    public void ClockUpdate(GameTimestamp timestamp)
+    {
+        if (landStatus == LandStatus.Watered)
+        {
+            int hoursElapsed = GameTimestamp.CompareTimestamp(timeWatered, timestamp);
+
+            if (hoursElapsed > 24)
+            {
+                SwitchLandStatus(LandStatus.Farmland);
+            }
+        }
+
+        
+    }
+    
 
 
 

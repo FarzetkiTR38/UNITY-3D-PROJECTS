@@ -1,16 +1,7 @@
 using UnityEngine;
 
-public class ITimeTracker : MonoBehaviour
+public interface ITimeTracker
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    void ClockUpdate(GameTimestamp timestamp);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

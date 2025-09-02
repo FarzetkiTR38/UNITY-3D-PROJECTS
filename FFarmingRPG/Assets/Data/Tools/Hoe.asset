@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff243bccd1c00904d89163d36897d107, type: 3}
   m_Name: Hoe
   m_EditorClassIdentifier: 
-  description: "\u2692 Topra\u011F\u0131 s\xFCrmek ve ekim i\xE7in haz\u0131r hale
-    getirmek i\xE7in kullan\u0131l\u0131r."
+  description: " - Topra\u011F\u0131 s\xFCrmek ve ekim i\xE7in haz\u0131r hale getirmek
+    i\xE7in kullan\u0131l\u0131r."
   thumbnail: {fileID: -497079496, guid: e2c803dc379a72543868fc598ed5cd62, type: 3}
   gameModel: {fileID: 0}
   toolType: 0

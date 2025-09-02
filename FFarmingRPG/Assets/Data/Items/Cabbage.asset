@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36de94efabea881439fa9d08f0de724f, type: 3}
   m_Name: Cabbage
   m_EditorClassIdentifier: 
-  description: A leafy green vegetable
+  description: ' - Taze lahana, yemeklerde kullan veya sat.'
   thumbnail: {fileID: 1610402082, guid: d330cf6f09caa86468910c9ef75bd931, type: 3}
   gameModel: {fileID: 0}

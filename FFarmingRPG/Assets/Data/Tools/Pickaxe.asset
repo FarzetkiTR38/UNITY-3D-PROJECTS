@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff243bccd1c00904d89163d36897d107, type: 3}
   m_Name: Pickaxe
   m_EditorClassIdentifier: 
-  description: "\u26CF Ta\u015Flar\u0131 k\u0131rmak ve maden \xE7\u0131karmak i\xE7in
+  description: " - Ta\u015Flar\u0131 k\u0131rmak ve maden \xE7\u0131karmak i\xE7in
     kullan\u0131l\u0131r. Sert kayalar\u0131 par\xE7alamada etkilidir."
   thumbnail: {fileID: -2120653156, guid: e2c803dc379a72543868fc598ed5cd62, type: 3}
   gameModel: {fileID: 0}

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d49e9a3652f8c4f9a33764c1fc2798, type: 3}
   m_Name: Cabbage Seeds
   m_EditorClassIdentifier: 
-  description: Seeds to geow cabbages
+  description: " - Topra\u011Fa ekildi\u011Finde birka\xE7 g\xFCn i\xE7inde taze
+    lahanalara d\xF6n\xFC\u015F\xFCr. D\xFCzenli sulama ister.  \u0130lkbahar ve
+    Sonbahar\u2019da yeti\u015Fir. 7 g\xFCnde b\xFCy\xFCr."
   thumbnail: {fileID: -1999274088, guid: e2c803dc379a72543868fc598ed5cd62, type: 3}
   gameModel: {fileID: 0}
   daysToGrow: 3

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 [System.Serializable]
 public class GameTimestamp
 {
-    
+
     public int year;
 
     public enum Season
@@ -20,14 +20,14 @@ public class GameTimestamp
     // fakat günü hesaplarken modu 0 olan günün 7. gün olması gerekiyor bu yüzden başa yazdık
     public enum DayOfTheWeek
     {
-        Saturday, 
+        Saturday,
         Sunday,
         Monday,
         Tuesday,
         Wednesday,
         Thursday,
         Friday
-        
+
     }
 
 
@@ -44,6 +44,15 @@ public class GameTimestamp
         this.minute = minute;
     }
 
+    public GameTimestamp(GameTimestamp timestamp)
+    {
+        this.year = timestamp.year;
+        this.season = timestamp.season;
+        this.day = timestamp.day;
+        this.hour = timestamp.hour;
+        this.minute = timestamp.minute;
+    }
+
     public void UpdateClock()
     {
         minute++;
@@ -54,23 +63,23 @@ public class GameTimestamp
             hour++;
         }
 
-        if(hour >= 24)
+        if (hour >= 24)
         {
             hour = 0;
             day++;
         }
 
         // Seasonları normalde 90 günde bir arttırmak gerekiyordu fakat biz ay gibi 30 günde bir arttıracaz 
-        if(day >= 30)
+        if (day >= 30)
         {
             day = 1;
 
-            if(season == Season.Winter)
+            if (season == Season.Winter)
             {
                 season = Season.Spring;
                 year++;
-            }   
-            else 
+            }
+            else
             {
                 season++;
             }
@@ -81,7 +90,7 @@ public class GameTimestamp
 
     public DayOfTheWeek GetDayOfTheWeek()
     {
-        int dayPassed =  YearsToDays(year) + SeasonToDays(season) + day;
+        int dayPassed = YearsToDays(year) + SeasonToDays(season) + day;
 
         int dayIndex = dayPassed % 7;
 
@@ -108,6 +117,29 @@ public class GameTimestamp
     public static int YearsToDays(int years)
     {
         return years * 4 * 30;
+    }
+
+    public static int CompareTimestamp(GameTimestamp timestamp1, GameTimestamp timestamp2)
+    {
+
+
+        if (timestamp1 == null || timestamp2 == null)
+        {
+            Debug.LogError("CompareTimestamp: timestamp1 veya timestamp2 null!");
+            Debug.LogError("timestamp1: " + (timestamp1 == null ? "null" : timestamp1.year + " " + timestamp1.season + " " + timestamp1.day + " " + timestamp1.hour + " " + timestamp1.minute));
+            Debug.LogError("timestamp2: " + (timestamp2 == null ? "null" : timestamp2.year + " " + timestamp2.season + " " + timestamp2.day + " " + timestamp2.hour + " " + timestamp2.minute));
+            return 0;
+        }
+        
+        int timestamp1Hours = DaysToHours(YearsToDays(timestamp1.year)) + DaysToHours(SeasonToDays(timestamp1.season)) + DaysToHours(timestamp1.day) + timestamp1.hour;
+        int timestamp2Hours = DaysToHours(YearsToDays(timestamp2.year)) + DaysToHours(SeasonToDays(timestamp2.season)) + DaysToHours(timestamp2.day) + timestamp2.hour;
+
+        int difference = timestamp2Hours - timestamp1Hours;
+
+        return Mathf.Abs(difference);
+
+        
+
     }
 
 
