@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -25,18 +26,22 @@ public class InventoryManager : MonoBehaviour
     public ItemData[] items = new ItemData[8]; // 8 slotlu items inventory
     public ItemData equippedItem = null;
 
+    public Transform handPoint;
+
     public void InventoryToHand(int slotIndex, InventorySlot.InventoryType inventoryType)
     {
-        
-        if(inventoryType == InventorySlot.InventoryType.Item)
+
+        if (inventoryType == InventorySlot.InventoryType.Item)
         {
             ItemData itemToEquip = items[slotIndex];
 
             items[slotIndex] = equippedItem;
 
             equippedItem = itemToEquip;
+
+            RenderHand();
         }
-        else 
+        else
         {
             ItemData toolToEquip = tools[slotIndex];
 
@@ -46,37 +51,57 @@ public class InventoryManager : MonoBehaviour
         }
 
         UIManager.instance.RenderInventory();
+
+
+
+    }
     
+    public void RenderHand()
+    {
+        
+        if(handPoint.childCount > 0)
+        {
+            
+            Destroy(handPoint.GetChild(0).gameObject);
+            
+        }
 
 
+        if (equippedItem != null)
+        {
+            Instantiate(equippedItem.gameModel, handPoint);
+        }
+        
     }
 
     public void HandToInventory(InventorySlot.InventoryType inventoryType)
     {
 
-        if(inventoryType == InventorySlot.InventoryType.Item)
+        if (inventoryType == InventorySlot.InventoryType.Item)
         {
-            for(int i = 0; i < items.Length; i++)
+            for (int i = 0; i < items.Length; i++)
             {
-                if(items[i] == null)
+                if (items[i] == null)
                 {
                     items[i] = equippedItem;
                     equippedItem = null;
                     break;
                 }
             }
+
+            RenderHand();
         }
-        else 
+        else
         {
-            for(int i = 0; i < tools.Length; i++)
+            for (int i = 0; i < tools.Length; i++)
             {
-                if(tools[i] == null)
+                if (tools[i] == null)
                 {
                     tools[i] = equippedTool;
                     equippedTool = null;
                     break;
                 }
-            }            
+            }
         }
 
         UIManager.instance.RenderInventory();

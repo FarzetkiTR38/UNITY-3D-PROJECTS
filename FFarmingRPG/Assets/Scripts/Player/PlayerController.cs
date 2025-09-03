@@ -40,9 +40,14 @@ public class PlayerController : MonoBehaviour
     public void Interact()
     {
 
-        if(Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
             playerInteraction.Interact();
+        }
+        
+        if( Input.GetButtonDown("Fire2"))
+        {
+            playerInteraction.ItemInteract();
         }
 
 

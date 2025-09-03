@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    
+
 
 
     PlayerController playerController;
 
     LandController selectedLand = null;
+
+    InteractableObject selectedInteractable = null;
 
     void Start()
     {
@@ -17,7 +19,7 @@ public class PlayerInteraction : MonoBehaviour
     void Update()
     {
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, Vector3.down, out hit, 1))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1))
         {
             OnInteractableHit(hit);
         }
@@ -27,14 +29,28 @@ public class PlayerInteraction : MonoBehaviour
     {
         Collider other = hit.collider;
 
-        if(other.tag == "Land")
+        if (other.tag == "Land")
         {
             LandController land = other.GetComponent<LandController>();
+            print("land getcomponent çalıştı");
             SelectLand(land);
             return;
         }
 
-        if(selectedLand != null)
+        if (other.tag == "Item")
+        {
+            selectedInteractable = other.GetComponent<InteractableObject>();
+            print("Item getcomponent çalıştı");
+            return;
+            
+        }
+
+        if (selectedInteractable != null)
+        {
+            selectedInteractable = null;
+        }
+
+        if (selectedLand != null)
         {
             selectedLand.Select(false);
             selectedLand = null;
@@ -44,7 +60,7 @@ public class PlayerInteraction : MonoBehaviour
     void SelectLand(LandController land)
     {
 
-        if(selectedLand != null)
+        if (selectedLand != null)
         {
             selectedLand.Select(false);
         }
@@ -58,13 +74,40 @@ public class PlayerInteraction : MonoBehaviour
 
     public void Interact()
     {
-        if(selectedLand != null)
+
+        if(InventoryManager.instance.equippedTool != null)
+        {
+            return;
+        }
+
+        if (selectedLand != null)
         {
             selectedLand.Interact();
             return;
         }
 
         Debug.Log("Not on any land ");
+    }
+
+
+    // playercontroller içinden çağrılacak
+    // sağ tık ile itemi envantere koyacak elinden alınmış olacak
+    public void ItemInteract()
+    {
+
+
+        if (InventoryManager.instance.equippedItem != null)
+        {
+            InventoryManager.instance.HandToInventory(InventorySlot.InventoryType.Item);
+            return;
+        }
+
+        if (selectedInteractable != null)
+        {
+            selectedInteractable.PickUp();
+            print("Bir şeyler almaya çalışıyoz da olmuyor awk ");
+        }
+
     }
 
 
