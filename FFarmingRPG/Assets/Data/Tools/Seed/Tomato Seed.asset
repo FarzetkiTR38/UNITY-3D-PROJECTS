@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d49e9a3652f8c4f9a33764c1fc2798, type: 3}
+  m_Name: Tomato Seed
+  m_EditorClassIdentifier: 
+  description: " - Topra\u011Fa ekildi\u011Finde birka\xE7 g\xFCn i\xE7inde taze
+    lahanalara d\xF6n\xFC\u015F\xFCr. D\xFCzenli sulama ister.  \u0130lkbahar ve
+    Sonbahar\u2019da yeti\u015Fir. 7 g\xFCnde b\xFCy\xFCr."
+  thumbnail: {fileID: -1999274088, guid: e2c803dc379a72543868fc598ed5cd62, type: 3}
+  gameModel: {fileID: 0}
+  daysToGrow: 3
+  cropToYield: {fileID: 11400000, guid: fb61cd48b2a64864692b98b646e8a761, type: 2}
+  seedling: {fileID: 2938960499656034927, guid: f877254d83f1e8d4a95e457f6f5f3bff, type: 3}
+  regrowable: 1
+  daysToRegrow: 2

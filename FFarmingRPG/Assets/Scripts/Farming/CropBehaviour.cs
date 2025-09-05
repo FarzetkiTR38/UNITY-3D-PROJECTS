@@ -37,6 +37,14 @@ public class CropBehaviour : MonoBehaviour
 
         maxGrowth = GameTimestamp.HoursToMinutes(hoursToGrow);
 
+        if (seedToGrow.regrowable)
+        {
+            RegrowableHarvestBehaviour regrowableHarvest = harvestable.GetComponent<RegrowableHarvestBehaviour>();
+            regrowableHarvest.SetParent(this);
+
+        }
+
+
         SwitchState(CropState.Seed);
     }
 
@@ -44,8 +52,8 @@ public class CropBehaviour : MonoBehaviour
     public void Grow()
     {
         growth++;
-        
-        if(growth >= maxGrowth / 2 && cropState == CropState.Seed)
+
+        if (growth >= maxGrowth / 2 && cropState == CropState.Seed)
         {
             SwitchState(CropState.Seedling);
         }
@@ -65,7 +73,7 @@ public class CropBehaviour : MonoBehaviour
         seedling.SetActive(false);
         harvestable.SetActive(false);
 
-        switch(stateToSwitch)
+        switch (stateToSwitch)
         {
             case CropState.Seed:
                 seed.SetActive(true);
@@ -77,13 +85,31 @@ public class CropBehaviour : MonoBehaviour
 
             case CropState.Harvestable:
                 harvestable.SetActive(true);
-                harvestable.transform.parent = null;
-                Destroy(gameObject);
+
+                if (!seedToGrow.regrowable)
+                {
+                    harvestable.transform.parent = null;
+                    Destroy(gameObject);
+                }
+
+
+                print("switchstate fnc çalıştı en sondaki case");
                 break;
         }
-        
+
         cropState = stateToSwitch;
 
 
+    }
+
+
+    public void Regrow()
+    {
+        int hoursToRegrow = GameTimestamp.DaysToHours(seedToGrow.daysToRegrow);
+        growth = maxGrowth - GameTimestamp.HoursToMinutes(hoursToRegrow);
+
+        SwitchState(CropState.Seedling);
+
+        print("regrow fnc çalıştı");
     }
 }

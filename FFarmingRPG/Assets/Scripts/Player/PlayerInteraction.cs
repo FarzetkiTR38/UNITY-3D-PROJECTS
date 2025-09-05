@@ -15,13 +15,15 @@ public class PlayerInteraction : MonoBehaviour
     {
         playerController = transform.parent.GetComponent<PlayerController>();
     }
-
+    
     void Update()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, 1))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 3))
         {
             OnInteractableHit(hit);
+            
+            print("ray çarptı");
         }
     }
 
@@ -32,7 +34,7 @@ public class PlayerInteraction : MonoBehaviour
         if (other.tag == "Land")
         {
             LandController land = other.GetComponent<LandController>();
-            print("land getcomponent çalıştı");
+            print("şu an landın üstündesin");
             SelectLand(land);
             return;
         }
@@ -40,7 +42,7 @@ public class PlayerInteraction : MonoBehaviour
         if (other.tag == "Item")
         {
             selectedInteractable = other.GetComponent<InteractableObject>();
-            print("Item getcomponent çalıştı");
+            print("şu an itemin üstündesin");
             return;
             
         }
@@ -75,7 +77,7 @@ public class PlayerInteraction : MonoBehaviour
     public void Interact()
     {
 
-        if(InventoryManager.instance.equippedTool != null)
+        if(InventoryManager.instance.equippedTool == null)
         {
             return;
         }
@@ -85,8 +87,6 @@ public class PlayerInteraction : MonoBehaviour
             selectedLand.Interact();
             return;
         }
-
-        Debug.Log("Not on any land ");
     }
 
 
@@ -105,7 +105,6 @@ public class PlayerInteraction : MonoBehaviour
         if (selectedInteractable != null)
         {
             selectedInteractable.PickUp();
-            print("Bir şeyler almaya çalışıyoz da olmuyor awk ");
         }
 
     }

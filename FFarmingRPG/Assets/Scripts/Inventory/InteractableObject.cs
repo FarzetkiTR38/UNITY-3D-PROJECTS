@@ -5,7 +5,7 @@ public class InteractableObject : MonoBehaviour
 
     public ItemData item;
 
-    public void PickUp()
+    public virtual void PickUp()
     {
 
         InventoryManager.instance.equippedItem = item;

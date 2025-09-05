@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
         {
             playerInteraction.Interact();
         }
-        
+
         if( Input.GetButtonDown("Fire2"))
         {
             playerInteraction.ItemInteract();
