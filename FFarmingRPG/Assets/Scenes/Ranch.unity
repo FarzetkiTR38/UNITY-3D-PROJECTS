@@ -2911,7 +2911,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cd53e86b086ac42469b24732778e4e7e, type: 2}
   - {fileID: 11400000, guid: 9a2557d892506904cab096f6b5b14260, type: 2}
   - {fileID: 11400000, guid: 0bd73e89e7e64284aa190db3001dbaaf, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 093c7e8fc53280e4bae919c09147a6e3, type: 2}
   - {fileID: 0}
   equippedTool: {fileID: 0}
   items:

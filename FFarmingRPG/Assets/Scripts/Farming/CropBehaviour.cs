@@ -8,16 +8,21 @@ public class CropBehaviour : MonoBehaviour
     SeedData seedToGrow;
 
     [Header("Stages of Life")]
+
     public GameObject seed;
+    public GameObject wilted;
     private GameObject seedling;
     private GameObject harvestable;
 
     int growth;
     int maxGrowth;
 
+    int maxHealth = GameTimestamp.HoursToMinutes(48);
+    int health;
+
     public enum CropState
     {
-        Seed, Seedling, Harvestable
+        Seed, Seedling, Harvestable, Wilted
     }
 
     public CropState cropState;
@@ -54,6 +59,11 @@ public class CropBehaviour : MonoBehaviour
     {
         growth++;
 
+        if(health < maxHealth)
+        {
+            health++;
+        }
+
         if (growth >= maxGrowth / 2 && cropState == CropState.Seed)
         {
             SwitchState(CropState.Seedling);
@@ -67,12 +77,23 @@ public class CropBehaviour : MonoBehaviour
 
     }
 
+    public void Wither()
+    {
+        health--;
+
+        if (health <= 0 && cropState != CropState.Seed)
+        {
+            SwitchState(CropState.Wilted);
+        }
+    }
+
     private void SwitchState(CropState stateToSwitch)
     {
 
         seed.SetActive(false);
         seedling.SetActive(false);
         harvestable.SetActive(false);
+        wilted.SetActive(false);
 
         switch (stateToSwitch)
         {
@@ -84,6 +105,8 @@ public class CropBehaviour : MonoBehaviour
             case CropState.Seedling:
                 seedling.SetActive(true);
                 print("switchstate fnc çalıştı ortadaki case");
+
+                health = maxHealth;
                 break;
 
             case CropState.Harvestable:
@@ -98,6 +121,10 @@ public class CropBehaviour : MonoBehaviour
 
 
                 print("switchstate fnc çalıştı en sondaki case");
+                break;
+
+            case CropState.Wilted:
+                wilted.SetActive(true);
                 break;
         }
 

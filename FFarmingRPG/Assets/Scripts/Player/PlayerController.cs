@@ -24,6 +24,11 @@ public class PlayerController : MonoBehaviour
         playerInteraction = GetComponentInChildren<PlayerInteraction>();
     }
 
+    void Start()
+    {
+        Time.timeScale = 5.0f;
+    }
+
     void Update()
     {
         Move();

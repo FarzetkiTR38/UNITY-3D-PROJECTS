@@ -96,6 +96,13 @@ public class LandController : MonoBehaviour, ITimeTracker
                         SwitchLandStatus(LandStatus.Watered);
                     }
                     break;
+                case EquipmentData.ToolType.Shovel:
+                    if(cropPlanted != null)
+                    {
+                        Destroy(cropPlanted.gameObject);
+                        cropPlanted = null;
+                    }
+                    break;
 
             }
 
@@ -123,7 +130,7 @@ public class LandController : MonoBehaviour, ITimeTracker
             int hoursElapsed = GameTimestamp.CompareTimestamp(timeWatered, timestamp);
 
 
-            if(cropPlanted != null)
+            if (cropPlanted != null)
             {
                 cropPlanted.Grow();
             }
@@ -131,6 +138,14 @@ public class LandController : MonoBehaviour, ITimeTracker
             if (hoursElapsed > 24)
             {
                 SwitchLandStatus(LandStatus.Farmland);
+            }
+        }
+        
+        if(landStatus != LandStatus.Watered && cropPlanted != null)
+        {
+            if(cropPlanted.cropState != CropBehaviour.CropState.Seed)
+            {
+                cropPlanted.Wither();
             }
         }
 
