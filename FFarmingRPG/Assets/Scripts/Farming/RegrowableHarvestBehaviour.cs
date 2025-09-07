@@ -3,12 +3,12 @@ using UnityEngine;
 public class RegrowableHarvestBehaviour : InteractableObject
 {
 
-
     CropBehaviour parentCrop;
 
     public void SetParent(CropBehaviour parentCrop)
     {
         this.parentCrop = parentCrop;
+        print("setparent fnc çalıştı");
     }
 
     public override void PickUp()
@@ -20,10 +20,5 @@ public class RegrowableHarvestBehaviour : InteractableObject
         parentCrop.Regrow();
         
         print("pickup fnc çalıştı");
-
-
-
-
-
     }
 }

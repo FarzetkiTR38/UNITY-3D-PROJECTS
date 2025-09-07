@@ -7,11 +7,12 @@ public class InteractableObject : MonoBehaviour
 
     public virtual void PickUp()
     {
+        
 
         InventoryManager.instance.equippedItem = item;
         
         InventoryManager.instance.RenderHand();
-
+        print("normal pickup çalıştı");
         Destroy(gameObject);
     }
 

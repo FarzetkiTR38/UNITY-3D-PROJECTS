@@ -39,6 +39,7 @@ public class CropBehaviour : MonoBehaviour
 
         if (seedToGrow.regrowable)
         {
+            print("regrowable true olduğu için regrowableharvestbehaviour eklendi plant içindeki if çalıştı");
             RegrowableHarvestBehaviour regrowableHarvest = harvestable.GetComponent<RegrowableHarvestBehaviour>();
             regrowableHarvest.SetParent(this);
 
@@ -77,10 +78,12 @@ public class CropBehaviour : MonoBehaviour
         {
             case CropState.Seed:
                 seed.SetActive(true);
+                print("switchstate fnc çalıştı en baştaki case");
                 break;
 
             case CropState.Seedling:
                 seedling.SetActive(true);
+                print("switchstate fnc çalıştı ortadaki case");
                 break;
 
             case CropState.Harvestable:
@@ -88,6 +91,7 @@ public class CropBehaviour : MonoBehaviour
 
                 if (!seedToGrow.regrowable)
                 {
+                    print("regrowable false olduğu için destroy edildi harvestable objesi");
                     harvestable.transform.parent = null;
                     Destroy(gameObject);
                 }
