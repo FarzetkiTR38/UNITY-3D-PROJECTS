@@ -77,7 +77,7 @@ public class PlayerInteraction : MonoBehaviour
     public void Interact()
     {
 
-        if(InventoryManager.instance.equippedTool == null)
+        if(InventoryManager.instance.SlotEquipped(InventorySlot.InventoryType.Item))
         {
             return;
         }
@@ -96,7 +96,7 @@ public class PlayerInteraction : MonoBehaviour
     {
 
 
-        if (InventoryManager.instance.equippedItem != null)
+        if (InventoryManager.instance.SlotEquipped(InventorySlot.InventoryType.Item))
         {
             InventoryManager.instance.HandToInventory(InventorySlot.InventoryType.Item);
             return;

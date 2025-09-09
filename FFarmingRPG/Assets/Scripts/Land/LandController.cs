@@ -68,7 +68,7 @@ public class LandController : MonoBehaviour, ITimeTracker
 
     public void Interact()
     {
-        ItemData toolSlot = InventoryManager.instance.equippedTool;
+        ItemData toolSlot = InventoryManager.instance.GetEquippedSlotItem(InventorySlot.InventoryType.Tool);
         
         if (toolSlot == null)
         {
@@ -140,13 +140,15 @@ public class LandController : MonoBehaviour, ITimeTracker
                 SwitchLandStatus(LandStatus.Farmland);
             }
         }
-        
-        if(landStatus != LandStatus.Watered && cropPlanted != null)
+
+        if (landStatus != LandStatus.Watered && cropPlanted != null)
         {
-            if(cropPlanted.cropState != CropBehaviour.CropState.Seed)
+            if (cropPlanted.cropState != CropBehaviour.CropState.Seed)
             {
                 cropPlanted.Wither();
             }
+
+            // if the crop 
         }
 
         

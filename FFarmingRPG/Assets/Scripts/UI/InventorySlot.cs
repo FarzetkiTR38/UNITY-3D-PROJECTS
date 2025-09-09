@@ -1,32 +1,47 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 
 public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     
     ItemData itemToDisplay;
+    int quantity;
 
     public Image itemDisplayImage;
 
+    public TMP_Text quantityText;
+
     public enum InventoryType
     {
-        Item, tool
+        Item, Tool
     }
 
     public InventoryType inventoryType;
 
     int slotIndex;
 
-    public void Display(ItemData itemToDisplay)
+    public void Display(ItemSlotData itemSlot)
     {
+        
+        itemToDisplay = itemSlot.itemData;
+        quantity = itemSlot.quantity;
 
+        // default quantity text
+        quantityText.text = "";
 
-        if(itemToDisplay != null)
+        if (itemToDisplay != null)
         {
             itemDisplayImage.sprite = itemToDisplay.thumbnail;
-            this.itemToDisplay = itemToDisplay;
+
+            if (quantity > 1)
+            {
+                quantityText.text = quantity.ToString();
+            }
+
+
             itemDisplayImage.gameObject.SetActive(true);
 
             return;

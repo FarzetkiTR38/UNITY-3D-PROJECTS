@@ -13,7 +13,7 @@ public class RegrowableHarvestBehaviour : InteractableObject
 
     public override void PickUp()
     {
-        InventoryManager.instance.equippedItem = item;
+        InventoryManager.instance.EquipEmptySlot(item);
 
         InventoryManager.instance.RenderHand();
 

@@ -9,7 +9,7 @@ public class InteractableObject : MonoBehaviour
     {
         
 
-        InventoryManager.instance.equippedItem = item;
+        InventoryManager.instance.EquipEmptySlot(item);
         
         InventoryManager.instance.RenderHand();
         print("normal pickup çalıştı");

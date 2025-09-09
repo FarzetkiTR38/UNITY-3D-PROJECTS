@@ -142,5 +142,12 @@ public class CropBehaviour : MonoBehaviour
         SwitchState(CropState.Seedling);
 
         print("regrow fnc çalıştı");
+
+
+
+
+
+
+        
     }
 }
